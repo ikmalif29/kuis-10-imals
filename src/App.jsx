@@ -36,9 +36,9 @@ function App() {
     }
   ];
 
-  const [search , setSearch] = useState("");
+  const [search, setSearch] = useState("");
 
-  const filterdata = films.filter((f) => 
+  const filterdata = films.filter((f) =>
     f.namaFilm.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -55,7 +55,19 @@ function App() {
             <div key={f.id} className="flex flex-col justify-center gap-3 items-center">
               <h1 className="font-bold text-2xl">{f.namaFilm}</h1>
               <img src={f.gambar} alt="" className="w-96 h-96" />
-              <button className="border-1 border-black bg-indigo-600 w-44 rounded-lg">lihat selengkapnya</button>
+              <button className="border-1 border-black bg-indigo-600 w-44 rounded-lg" onClick={(e) => {
+                e.preventDefault();
+                alert(`
+                ${f.id}
+                ${f.namaFilm}
+                ${f.genre}
+                ${f.durasi}
+                ${f.tanggalTayang}
+                ${f.sutradara}
+                ${f.sinopsis}
+
+                `)
+              }}>lihat selengkapnya</button>
             </div>
           ))}
         </div>
